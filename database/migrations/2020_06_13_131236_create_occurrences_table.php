@@ -13,12 +13,11 @@ class CreateOccurrencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ocurrences', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('occurrences', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('equipment_id');
-            $table->mediumText('description');
-            $table->date('occurred_at')->useCurrent();
-            $table->string('files');
+            $table->text('description');
+            $table->date('occurred_at');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateOccurrencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ocurrences');
+        Schema::dropIfExists('occurrences');
     }
 }

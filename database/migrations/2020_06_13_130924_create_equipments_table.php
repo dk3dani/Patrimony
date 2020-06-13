@@ -14,18 +14,16 @@ class CreateEquipmentsTable extends Migration
     public function up()
     {
         Schema::create('equipments', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->unsignedInteger('place_id');
-            $table->unsignedInteger('manufacture_id');
+            $table->unsignedInteger('manufacturer_id');
             $table->unsignedInteger('category_id');
-            $table->string('model');
-            $table->mediumText('description')-> nullable;
-            $table->enum('state',['maintenace','active','inactive','maintenance_pending'])->default('active');
-            $table->string('serial_number');
-            $table->decimal('aquisition_value');
+            $table->string('model', 30);
+            $table->mediumText('description')->nullable();
+            $table->enum('state', ['maintenance', 'maintenance_pending', 'active', 'inactive'])
+                ->default('active');
             $table->string('patrimony');
-            $table->string('available_quantity');
-            $table->string('files');
+            $table->decimal('acquisition_value');
             $table->timestamps();
         });
     }
