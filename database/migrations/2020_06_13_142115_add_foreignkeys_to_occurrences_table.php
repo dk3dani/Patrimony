@@ -31,9 +31,9 @@ class AddForeignkeysToOccurrencesTable extends Migration
     public function down()
     {
         Schema::table('occurrences', function (Blueprint $table) {
-            $table->dropForeign([
+            $table->dropForeign(
                 'fk_o_equipment_id'
-            ]);
+            );
         });
     }
 }
