@@ -242,6 +242,13 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'manufacturer',
+            'route'         => 'manufacturer',
+            'icon'        => 'far fa-fw fa-plus',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
