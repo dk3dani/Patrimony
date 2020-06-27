@@ -41,4 +41,21 @@ Route::group([
 
 });
 
+Route::group([
+    'prefix' => 'place',
+    'middleware' => 'auth'
+], function () {
+    Route::get('/', 'PlaceController@index')
+        ->name('place');
+    Route::post('/', 'PlaceController@store')
+        ->name('place_store');
+    Route::get('/form', 'PlaceController@form')
+        ->name('place_form');
+    Route::get('/{place}/form_update', 'PlaceController@formUpdate')
+        ->name('place_form_update');
+    Route::put('/{place}/update', 'PlaceController@update')
+        ->name('place_update');
+    Route::delete('/{place}/delete', 'PlaceController@delete')
+        ->name('place_delete');
+});
 

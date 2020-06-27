@@ -242,19 +242,17 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'manufacturer',
-            'route'         => 'manufacturer',
-            'icon'        => 'far fa-fw fa-plus',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Manufacturer',
+            'route'       => 'manufacturer',
+            'icon'        => 'fas fa-building',
+
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Locais',
+            'route'  => 'place',
+            'icon' => 'fas fa-map-marked-alt',
         ],
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
