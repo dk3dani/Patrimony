@@ -17,14 +17,14 @@ class ManufacturerController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        $manufacturers = Manufacturer::all();
+        $name = $request->input('name') ?: null;
+
+        $manufacturers = Manufacturer::query()->when($name, function ($query, $name) {
+            $query->where('name', 'like', "%$name%");
+        })->paginate(3);
 
         return view('manufacturers.index', [
             'manufacturers' => $manufacturers
@@ -58,18 +58,18 @@ class ManufacturerController extends Controller
 
     public function update(Request $request, Manufacturer $manufacturer)
     {
-        $manufacturesData = $request->all();
+        $manufacturesData = $request->post();
 
         $manufacturer->update($manufacturesData);
 
-        return redirect('manufacturer');
+        return redirect()->route('manufacturer', $request->query());
     }
 
-   
+    
     public function delete(Manufacturer $manufacturer)
     {
         $manufacturer->delete();
 
-        return redirect('manufacturer');
+        return response()->json([]);
     }
 }

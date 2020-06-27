@@ -35,6 +35,10 @@ Route::group([
     Route::get('/form', 'ManufacturerController@form')->name('manufacturer_form');
     Route::get('/{manufacturer}/form_update', 'ManufacturerController@formUpdate')->name('manufacturer_form_update');
     Route::put('/{manufacturer}/update', 'ManufacturerController@update')->name('manufacturer_update');
-    Route::get('/{manufacturer}/delete', 'ManufacturerController@delete')->name('manufacturer_delete');
+    Route::delete('/{manufacturer}/delete', 'ManufacturerController@delete')
+        ->name('manufacturer_delete');
+
 
 });
+
+

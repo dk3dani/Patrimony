@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-body">
                 <form
-                    action="{{ isset($manufacturer) ? route('manufacturer_update', ['manufacturer' => $manufacturer->id]) : route('manufacturer_store') }}"
+                    action="{{ isset($manufacturer) ? route('manufacturer_update', ['manufacturer' => $manufacturer->id]) : route('manufacturer_store') }}?{{ request()->getQueryString() }}"
                     method="post">
                     @csrf
                     @method(isset($manufacturer) ? 'PUT' : 'POST')
