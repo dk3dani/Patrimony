@@ -59,3 +59,21 @@ Route::group([
         ->name('place_delete');
 });
 
+Route::group([
+    'prefix' => 'category',
+    'middleware' => 'auth'
+], function () {
+    Route::get('/', 'CategoryController@index')
+        ->name('category');
+    Route::post('/', 'CategoryController@store')
+        ->name('category_store');
+    Route::get('/form', 'CategoryController@form')
+        ->name('category_form');
+    Route::get('/{category}/form_update', 'CategoryController@formUpdate')
+        ->name('category_form_update');
+    Route::put('/{category}/update', 'CategoryController@update')
+        ->name('category_update');
+    Route::delete('/{category}/delete', 'CategoryController@delete')
+        ->name('category_delete');
+});
+
