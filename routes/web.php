@@ -77,3 +77,22 @@ Route::group([
         ->name('category_delete');
 });
 
+
+Route::group([
+    'prefix' => 'equipment',
+    'middleware' => 'auth'
+], function () {
+    Route::get('/', 'EquipmentController@index')
+        ->name('equipment');
+    Route::post('/', 'EquipmentController@store')
+        ->name('equipment_store');
+    Route::get('/form', 'EquipmentController@form')
+        ->name('equipment_form');
+    Route::get('/{equipment}/form_update', 'EquipmentController@formUpdate')
+        ->name('equipment_form_update');
+    Route::put('/{equipment}/update', 'EquipmentController@update')
+        ->name('equipment_update');
+    Route::delete('/{equipment}/delete', 'EquipmentController@delete')
+        ->name('equipment_delete');
+});
+

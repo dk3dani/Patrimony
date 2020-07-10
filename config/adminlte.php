@@ -257,6 +257,11 @@ return [
             'route'  => 'category',
             'icon' => 'fas fa-fw fa-list-ol',
         ],
+        [
+            'text' => 'Equipamentos',
+            'route'  => 'equipment',
+            'icon' => 'fas fa-fw fa-list-ol',
+        ],
 
         ['header' => 'account_settings'],
         [
