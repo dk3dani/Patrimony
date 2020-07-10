@@ -252,6 +252,11 @@ return [
             'route'  => 'place',
             'icon' => 'fas fa-map-marked-alt',
         ],
+        [
+            'text' => 'Classificadores',
+            'route'  => 'category',
+            'icon' => 'fas fa-fw fa-list-ol',
+        ],
 
         ['header' => 'account_settings'],
         [
